@@ -2,6 +2,10 @@ package domain;
 
 import java.time.LocalDate;
 
+import business.LogicRecharges;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class StudentRecharge{
 	private String carnet;
 	private double amount;
@@ -12,7 +16,7 @@ public class StudentRecharge{
 		this.carnet = carnet;
 		this.amount = amount;
 		this.rechargeDate = rechargeDate;
-	}
+	} 
 	
 	public StudentRecharge() {
 		
@@ -40,6 +44,22 @@ public class StudentRecharge{
 
 	public void setRechargeDate(LocalDate rechargeDate) {
 		this.rechargeDate = rechargeDate;
+	}
+	
+	public StringProperty carnetStudentProperty() {
+		return new SimpleStringProperty(this.carnet);
+	}
+	
+	public StringProperty amountProperty() {
+		return new SimpleStringProperty(String.valueOf(this.amount));
+	}
+	
+	public StringProperty rechargeDateProperty() {
+		return new SimpleStringProperty(String.valueOf(this.rechargeDate));
+	}
+	
+	public StringProperty nameStudentProperty() {
+		return new SimpleStringProperty(LogicRecharges.studentName(carnet));
 	}
 	
 	
