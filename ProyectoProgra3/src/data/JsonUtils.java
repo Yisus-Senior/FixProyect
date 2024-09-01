@@ -25,10 +25,8 @@ public class JsonUtils<T> {
 	public List<T> getElement(Class<T> temp,String fileP) throws IOException{
 		File file = new File(fileP);
 		if(!file.exists()) {
-			System.out.println("Archivo no se creo, retornando null");
 			return new ArrayList<>();
 		}
-		System.out.println("retornando lista real");
 		return mapper.readValue(file, mapper.getTypeFactory().constructCollectionType(List.class, temp));
 	}
 	
