@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Student; 
+import domain.Menus;
+import domain.Student;
+import domain.StudentRecharge; 
 
 public class StudentsData {
 
@@ -31,6 +33,30 @@ public class StudentsData {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public static boolean updatedStudent(Student s,Student sSecond) {
+		try {
+			jsonUtils.removeElement(s, fileName);
+			
+			jsonUtils.saveElement(sSecond, fileName);
+			
+			return true;
+		}catch(IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	
+	}
+	
+	public static void removeStudent(Student s) {
+		try {
+			jsonUtils.removeElement(s, fileName);
+			
+		}catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 	
 }

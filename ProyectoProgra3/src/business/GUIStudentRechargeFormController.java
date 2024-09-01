@@ -8,10 +8,16 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.time.LocalDate;
 
+import javax.swing.JOptionPane;
+
+import data.StudentsRechargeData;
 import domain.StudentRecharge;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
@@ -32,13 +38,26 @@ public class GUIStudentRechargeFormController {
 	public void recharge(ActionEvent event) {
 		String message = validForm();
 		if(message.equals("")) {
-			//if() { 
+			if(LogicStudents.validRecharge(Integer.parseInt(tfRechargeAmount.getText()))) { 
+				if(StudentsRechargeData.existStudent(tfCarnet.getText())) {
+					
 				StudentRecharge sR = new StudentRecharge();
 				sR.setAmount(Integer.parseInt(tfRechargeAmount.getText()));
 				sR.setCarnet(tfCarnet.getText());
 				sR.setRechargeDate(LocalDate.now());
-			//}
+				
+				StudentsRechargeData.saveRecharge(sR);
+				JOptionPane.showMessageDialog(null,"Recarga realizada con exito");
+				StudentsRechargeData.makeRecharge(sR);
+				}else {
+					notifyAction("El carnet no existe,registre el estudiante");
+				}
+			}else {
+				notifyAction("El monto de la recarga debe estar entre 1000 y 10000");
+			}
 			
+		}else {
+			notifyAction(message);
 		}
 	}
 
@@ -68,21 +87,38 @@ public class GUIStudentRechargeFormController {
 	private String validForm() {
 		String message = "";
 		if(tfCarnet.getText().isBlank() || tfCarnet.getText().isEmpty() || tfCarnet.getText()==null){
-			message += "Ingrese un carnet valido";
+			message += "Ingrese un carnet valido\n";
 		}
 		if(tfRechargeAmount.getText().isBlank() || tfRechargeAmount.getText().isEmpty() || tfRechargeAmount.getText()==null){
-			message += "Ingrese un monto valido";
+			message += "Ingrese un monto valido\n";
 		}
 		
 		try {
 			if(Integer.parseInt(tfRechargeAmount.getText())<0) {
-				message += "Ingrese un monto valido(positivo)";
+				message += "Ingrese un monto valido(positivo)\n";
 				
 			}
 		}catch(NumberFormatException e) {
-			message += "Ingrese un valor numerico";
+			message += "Ingrese un valor numerico\n";
 			
 		}
 		return message;
+	}
+	
+	private void notifyAction(String message) {
+		labelAlert.setText(message);
+		Timeline timeline = new Timeline(
+				new KeyFrame(
+						Duration.seconds(5),
+						e->{labelAlert.setText("");
+				
+						}));
+		timeline.setCycleCount(1);
+		timeline.play();
+		
+	}
+	private void cleanForm() {
+		tfCarnet.clear();
+		tfRechargeAmount.clear();
 	}
 }

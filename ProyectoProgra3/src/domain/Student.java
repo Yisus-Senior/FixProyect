@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Student {
 
@@ -27,6 +28,26 @@ public class Student {
 	
 	public Student() {
 		
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(availableMoney, carnet, email, entryDate, gender, isActive, name, phoneNumber);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Double.doubleToLongBits(availableMoney) == Double.doubleToLongBits(other.availableMoney)
+				&& Objects.equals(carnet, other.carnet) && Objects.equals(email, other.email)
+				&& Objects.equals(entryDate, other.entryDate) && gender == other.gender && isActive == other.isActive
+				&& Objects.equals(name, other.name) && phoneNumber == other.phoneNumber;
 	}
 
 	public String getCarnet() {
@@ -92,5 +113,14 @@ public class Student {
 	public void setAvailableMoney(double availableMoney) {
 		this.availableMoney = availableMoney;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [carnet=" + carnet + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber
+				+ ", isActive=" + isActive + ", entryDate=" + entryDate + ", gender=" + gender + ", availableMoney="
+				+ availableMoney + "]";
+	}
+	
+		
 	
 }

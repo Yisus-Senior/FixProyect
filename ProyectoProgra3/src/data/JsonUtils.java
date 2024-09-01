@@ -37,7 +37,7 @@ public class JsonUtils<T> {
 		List<T> objects = getElement((Class<T>) t.getClass(),filePath);
 		
 		for( int i = 0;i<objects.size();i++) {
-			if(objects.get(i).equals(t)) {
+			if(objects.get(i).equals(tSecond)) {
 				objects.remove(i);
 				break;
 			}
@@ -49,13 +49,19 @@ public class JsonUtils<T> {
 	
 	public void removeElement(T t,String filePath) throws IOException {
 		List<T> objects = getElement((Class<T>) t.getClass(),filePath);
+		
 		for( int i = 0;i<objects.size();i++) {
-			if(objects.get(i).equals(t)) {
+			System.out.println(objects.get(i));
+			System.out.println(t);
+			if(t.equals(objects.get(i))) {
 				objects.remove(i);
+				System.out.println("Pasa");
 				break;
 			}
 			
 		}
+		
+		System.out.println(objects.toString());
 		mapper.writeValue(new File(filePath), objects);
 	}
 	

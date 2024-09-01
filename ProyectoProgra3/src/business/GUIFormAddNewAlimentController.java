@@ -146,7 +146,7 @@ public class GUIFormAddNewAlimentController {
 	private String validForm() {
 		String message ="";
 		
-		if(tfNameOfService.getText().isBlank() && tfNameOfService.getText().isEmpty() && tfNameOfService.getText()==null) {
+		if(tfNameOfService.getText().isBlank() || tfNameOfService.getText().isEmpty() || tfNameOfService.getText()==null) {
 			message +="\t Ingrese el nombre del servicio correctamente";
 		}
 		
