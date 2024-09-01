@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import business.LogicStudents;
 import domain.Menus;
 import domain.Student;
 import domain.StudentRecharge; 
@@ -14,14 +15,15 @@ public class StudentsData {
 	private static final String fileName = "Student.json";
 	private static JsonUtils<Student> jsonUtils = new JsonUtils<Student>();
 	
+	public static Student getStudent(String carnet) {
+		return LogicStudents.getStudent(carnet);
+	}
+	
 	public static List<Student> getStudentsList(){
 		try {
-			System.out.println("Entro al try");
 			return (ArrayList<Student>) jsonUtils.getElement(Student.class,fileName);
 		}catch(IOException e) {
-			System.out.println("Entro al catch");
 		}
-		System.out.println("retorno null defauld");
 		return null;
 	}
 	

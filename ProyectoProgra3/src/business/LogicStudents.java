@@ -58,4 +58,12 @@ public class LogicStudents {
 			}
 		}
 	}
+	
+	public static Student getStudent(String carnet){
+		for(Student e : StudentsData.getStudentsList()) {
+			if(e.getCarnet().equals(carnet)) {
+				return e;
+			}
+		}return null;
+	}
 }

@@ -49,17 +49,13 @@ public class JsonUtils<T> {
 		List<T> objects = getElement((Class<T>) t.getClass(),filePath);
 		
 		for( int i = 0;i<objects.size();i++) {
-			System.out.println(objects.get(i));
-			System.out.println(t);
 			if(t.equals(objects.get(i))) {
 				objects.remove(i);
-				System.out.println("Pasa");
 				break;
 			}
 			
 		}
 		
-		System.out.println(objects.toString());
 		mapper.writeValue(new File(filePath), objects);
 	}
 	

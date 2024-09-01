@@ -53,10 +53,10 @@ public class GUIConsultBalanceController {
 				if(!recharges.isEmpty()) {
 					ObservableList<StudentRecharge> allRecharges = FXCollections.observableList(recharges);
 					
-					tvColumnCarnet.setCellValueFactory(cellData -> cellData.getValue().carnetStudentProperty());
-					tvColumnStudent.setCellValueFactory(cellData -> cellData.getValue().nameStudentProperty());
-					tvColumnReloadDate.setCellValueFactory(cellData -> cellData.getValue().rechargeDateProperty());
-					tvColumnBalance.setCellValueFactory(cellData -> cellData.getValue().amountProperty());
+//					tvColumnCarnet.setCellValueFactory(cellData -> cellData.getValue().carnetStudentProperty());
+//					tvColumnStudent.setCellValueFactory(cellData -> cellData.getValue().nameStudentProperty());
+//					tvColumnReloadDate.setCellValueFactory(cellData -> cellData.getValue().rechargeDateProperty());
+//					tvColumnBalance.setCellValueFactory(cellData -> cellData.getValue().amountProperty());
 					
 					tvShowStudentBalance.setItems(allRecharges);
 				}else {
@@ -69,6 +69,15 @@ public class GUIConsultBalanceController {
 		}
 	}
 	
+	@FXML
+	public void initialize() {
+		//ObservableList<StudentRecharge> allRecharges = FXCollections.observableList(recharges);
+		//para no estar llamando
+		tvColumnCarnet.setCellValueFactory(cellData -> cellData.getValue().carnetStudentProperty());
+		tvColumnStudent.setCellValueFactory(cellData -> cellData.getValue().nameStudentProperty());
+		tvColumnReloadDate.setCellValueFactory(cellData -> cellData.getValue().rechargeDateProperty());
+		tvColumnBalance.setCellValueFactory(cellData -> cellData.getValue().amountProperty());
+	}
 	@FXML
 	public void returnHome(ActionEvent event) {
 		closeWindows();
