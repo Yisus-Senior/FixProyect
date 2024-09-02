@@ -35,7 +35,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
 
 import javafx.scene.control.TableColumn;
@@ -92,6 +92,7 @@ public class GUIRequestServicesController {
 	// Event Listener on Button[#btnAddNewFood].onAction
 	@FXML
 	public void addNewFood(ActionEvent event) {
+		
 		
 		if(tableViewFood.getSelectionModel().getSelectedItem()!=null) {
 			Menus menu = tableViewFood.getSelectionModel().getSelectedItem();

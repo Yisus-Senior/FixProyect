@@ -92,7 +92,7 @@ public class GUIConsultBalanceController {
 			
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //sino lo configuro se nececita agregar aqui
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //sino lo configuro se nececita agregar aqui
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.show();
@@ -109,7 +109,7 @@ public class GUIConsultBalanceController {
 			
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); sino lo configuro se nececita agregar aqui
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //sino lo configuro se nececita agregar aqui
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.show();
