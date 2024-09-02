@@ -18,7 +18,7 @@ public class MenuLunchData {
 	public static final String fileNameMondayLunch = "monday_lunch.json";
 	public static final String fileNameTuesdayLunch = "tuesday_lunch.json";
 	public static final String fileNameWednesdayLunch = "wednesday_lunch.json";
-	public static final String fileNameThurdsdayLunch = "thursday__lunch.json";
+	public static final String fileNameThurdsdayLunch = "thursday_lunch.json";
 	public static final String fileNameFridayLunch = "friday_lunch.json";
 	
 	private static JsonUtils<Menus> jsonUtils = new JsonUtils<Menus>(); 

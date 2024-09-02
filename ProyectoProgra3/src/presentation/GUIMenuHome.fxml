@@ -7,50 +7,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0"
-	prefWidth="400.0" xmlns="http://javafx.com/javafx/21"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="business.GUIMenuHomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="400.0" stylesheets="@styleMenuHome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.GUIMenuHomeController">
 	<children>
 		<MenuBar fx:id="mbarSodaU" prefHeight="26.0" prefWidth="400.0">
 			<menus>
-				<Menu fx:id="menuStudent" mnemonicParsing="false"
-					text="Estudiante">
+				<Menu fx:id="menuStudent" mnemonicParsing="false" text="Estudiante">
 					<items>
-						<MenuItem fx:id="mItemConsultBalance"
-							mnemonicParsing="false" onAction="#consultBalance"
-							text="Consultar saldo" />
-						<MenuItem fx:id="mItemAddStudent" mnemonicParsing="false"
-							onAction="#addStudent" text="Agregar estudiante" />
-						<MenuItem fx:id="mItemMakeRecharge"
-							mnemonicParsing="false" onAction="#makeRecharge"
-							text="Realizar Recarga" />
+						<MenuItem fx:id="mItemConsultBalance" mnemonicParsing="false" onAction="#consultBalance" text="Consultar saldo" />
+						<MenuItem fx:id="mItemAddStudent" mnemonicParsing="false" onAction="#addStudent" text="Agregar estudiante" />
+						<MenuItem fx:id="mItemMakeRecharge" mnemonicParsing="false" onAction="#makeRecharge" text="Realizar Recarga" />
 					</items>
 				</Menu>
 				<Menu fx:id="menuSoda" mnemonicParsing="false" text="Soda">
 					<items>
-						<MenuItem fx:id="mItemAddFood" mnemonicParsing="false"
-							onAction="#addFood" text="Agregar comida" />
+						<MenuItem fx:id="mItemAddFood" mnemonicParsing="false" onAction="#addFood" text="Agregar comida" />
 					</items>
 				</Menu>
-				<Menu fx:id="menuService" mnemonicParsing="false"
-					text="Servicio">
+				<Menu fx:id="menuService" mnemonicParsing="false" text="Servicio">
 					<items>
-						<MenuItem fx:id="mItemRequestService"
-							mnemonicParsing="false" onAction="#requestService"
-							text="Solicitar servicio" />
+						<MenuItem fx:id="mItemRequestService" mnemonicParsing="false" onAction="#requestService" text="Solicitar servicio" />
 					</items>
 				</Menu>
 			</menus>
 		</MenuBar>
-		<Label layoutX="90.0" layoutY="57.0" prefHeight="34.0"
-			prefWidth="242.0" text="Soda Universidad Nacional">
+		<Label layoutX="79.0" layoutY="54.0" prefHeight="34.0" prefWidth="242.0" text="Soda Universidad Nacional">
 			<font>
 				<Font name="Times New Roman Bold" size="20.0" />
 			</font>
 		</Label>
-		<Label layoutX="147.0" layoutY="124.0"
-			text="Agregar varas aqui (fts?)" />
 	</children>
 </AnchorPane>

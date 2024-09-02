@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.GUIStudentRechargeFormController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="348.0" stylesheets="@stylesForms.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.GUIStudentRechargeFormController">
 	<children>
-		<Label layoutX="98.0" layoutY="14.0" prefHeight="41.0" prefWidth="152.0" text="Menú Recargas" textFill="#1629ff">
+		<Label alignment="CENTER" prefHeight="52.0" prefWidth="348.0" style="-fx-background-color: rgb(65, 169, 213);" text="Menú Recargas" textFill="#1629ff">
 			<font>
 				<Font name="Times New Roman" size="22.0" />
 			</font>
 		</Label>
-		<Label layoutX="76.0" layoutY="71.0" text="Carnet:" />
-		<Label layoutX="76.0" layoutY="126.0" text="Monto de Recarga:" />
-		<TextField fx:id="tfCarnet" layoutX="76.0" layoutY="89.0" prefHeight="25.0" prefWidth="194.0" promptText="Ingrese su carnet">
+		<Label layoutX="41.0" layoutY="68.0" text="Carnet:" />
+		<Label layoutX="41.0" layoutY="123.0" prefHeight="15.0" prefWidth="117.0" text="Monto de Recarga:" />
+		<TextField fx:id="tfCarnet" layoutX="38.0" layoutY="83.0" prefHeight="27.0" prefWidth="272.0" promptText="Ingrese su carnet">
 			<font>
 				<Font name="System Italic" size="12.0" />
 			</font>
@@ -28,14 +28,14 @@
 				<Glow />
 			</effect>
 		</TextField>
-		<TextField fx:id="tfRechargeAmount" layoutX="76.0" layoutY="144.0" prefHeight="25.0" prefWidth="194.0" promptText="Ingrese el monto de su recarga">
+		<TextField fx:id="tfRechargeAmount" layoutX="38.0" layoutY="141.0" prefHeight="27.0" prefWidth="272.0" promptText="Ingrese el monto de su recarga">
 			<font>
 				<Font name="System Italic" size="12.0" />
 			</font>
 		</TextField>
-		<Button fx:id="btnRecharge" layoutX="78.0" layoutY="181.0" mnemonicParsing="false" onAction="#recharge" prefHeight="25.0" prefWidth="194.0" text="Recargar" />
-		<Label fx:id="labelAlert" layoutX="98.0" layoutY="218.0" prefHeight="41.0" prefWidth="222.0" textFill="RED" wrapText="true" />
-		<Button fx:id="btnReturnHome" layoutX="14.0" layoutY="239.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="25.0" prefWidth="63.0" text="Regresar">
+		<Button fx:id="btnRecharge" layoutX="41.0" layoutY="181.0" mnemonicParsing="false" onAction="#recharge" prefHeight="25.0" prefWidth="272.0" text="Recargar" />
+		<Label fx:id="labelAlert" layoutX="76.0" layoutY="206.0" prefHeight="41.0" prefWidth="194.0" textFill="RED" wrapText="true" />
+		<Button fx:id="btnReturnHome" layoutX="14.0" layoutY="234.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="25.0" prefWidth="63.0" text="Regresar">
 			<font>
 				<Font size="11.0" />
 			</font>

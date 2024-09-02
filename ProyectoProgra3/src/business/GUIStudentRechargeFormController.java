@@ -48,6 +48,7 @@ public class GUIStudentRechargeFormController {
 				
 				StudentsRechargeData.saveRecharge(sR);
 				JOptionPane.showMessageDialog(null,"Recarga realizada con exito");
+				cleanForm();
 				StudentsRechargeData.makeRecharge(sR);
 				}else {
 					notifyAction("El carnet no existe,registre el estudiante");
@@ -68,7 +69,7 @@ public class GUIStudentRechargeFormController {
 			
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //sino lo configuro se nececita agregar aqui
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //sino lo configuro se nececita agregar aqui
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.show();

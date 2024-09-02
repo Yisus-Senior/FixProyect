@@ -93,7 +93,6 @@ public class GUIRequestServicesController {
 	@FXML
 	public void addNewFood(ActionEvent event) {
 		
-		
 		if(tableViewFood.getSelectionModel().getSelectedItem()!=null) {
 			Menus menu = tableViewFood.getSelectionModel().getSelectedItem();
 			Student s = StudentsData.getStudent(cbStudent.getSelectionModel().getSelectedItem().toString());
@@ -192,7 +191,7 @@ public class GUIRequestServicesController {
 			if(rbBreakfast.isSelected()) {
 				menus =MenuBreakfastData.getMenuList(MenuBreakfastData.fileNameThurdsdayBreakfast);
 			}else{
-				MenuLunchData.getMenuList(MenuLunchData.fileNameThurdsdayLunch);
+				menus=MenuLunchData.getMenuList(MenuLunchData.fileNameThurdsdayLunch);
 			}
 			break;
 		case 4:
