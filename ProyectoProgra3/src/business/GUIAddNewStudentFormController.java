@@ -53,7 +53,7 @@ public class GUIAddNewStudentFormController {
 	}
 	
 	public void initialize() {
-		cbGender.getItems().addAll("Masculino", "Femenino","No especificar");
+		cbGender.getItems().addAll("No especificar","Masculino","Femenino");
 		cbGender.getSelectionModel().selectFirst();
 	}
 	
@@ -100,11 +100,22 @@ public class GUIAddNewStudentFormController {
 				errorMessage+="Numero celular de entre 8 a 10 digitos ";
 			}
 		}
+		
 		if(tfAvailableMoney.getText().isBlank()) {
 			errorMessage+="Requiere un dinero disponible";
 		}else {
-			if(Double.parseDouble(tfAvailableMoney.getText())<5000|| Double.parseDouble(tfAvailableMoney.getText())>15000) {
-				errorMessage+="Dinero disponible requiere rango de 5000 a 15000";
+			try {
+				if(Integer.parseInt(tfAvailableMoney.getText())<0) {
+					errorMessage += "Ingrese un monto valido(positivo)\n";
+					
+				}else {
+					if(Double.parseDouble(tfAvailableMoney.getText())<5000|| Double.parseDouble(tfAvailableMoney.getText())>15000) {
+						errorMessage+="Dinero disponible requiere rango de 5000 a 15000";
+					}
+				}
+			}catch(NumberFormatException e) {
+				errorMessage += "Ingrese un valor numerico\n";
+				
 			}
 		}
 		return errorMessage;

@@ -28,7 +28,7 @@ public class LogicStudents {
 	}
 	
 	public static boolean validRecharge(int recharge) {
-		if(recharge > 1000 && recharge < 10000) {
+		if(recharge >= 1000 && recharge <= 10000) {
 			return true;
 		}
 		return false;
