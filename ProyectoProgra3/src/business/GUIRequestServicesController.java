@@ -144,11 +144,15 @@ public class GUIRequestServicesController {
 	}
 	
 	private void setStudents() {
-		cbStudent.getItems().addAll(
-		    StudentsData.getStudentsList().stream() // cambiar esto ,sirve, pero mejor quitar
-		        .map(Student::getCarnet)
-		        .collect(Collectors.toList())
-		);
+//		cbStudent.getItems().addAll(
+//		    StudentsData.getStudentsList().stream() // cambiar esto ,sirve, pero mejor quitar
+//		        .map(Student::getCarnet)
+//		        .collect(Collectors.toList())
+//		);
+//		
+		for(Student s : StudentsData.getStudentsList()) {
+			cbStudent.getItems().add(s.getCarnet());
+		}
 		cbStudent.getSelectionModel().selectFirst();
 	}
 	
