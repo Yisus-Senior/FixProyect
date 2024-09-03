@@ -65,7 +65,7 @@ public class GUIMenuHomeController {
 			Parent root = loader.load();
 			GUIAddNewStudentFormController controllerCreate = loader.getController();
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.show();

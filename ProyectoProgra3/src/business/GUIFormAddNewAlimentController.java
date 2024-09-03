@@ -62,7 +62,7 @@ public class GUIFormAddNewAlimentController {
 		if(message.equals("")) {
 			int op = JOptionPane.showConfirmDialog(null,"Esta seguro de agregar un nuevo servicio para el dia " + 
 					cbSelectServiceDay.getSelectionModel().getSelectedItem()+
-					"al horario " + (rbServiceScheduleBreakfast.isSelected()?"Desayuno":"Almuerzo"));
+					" al horario " + (rbServiceScheduleBreakfast.isSelected()?"Desayuno":"Almuerzo"));
 			
 			if(op==0) {
 			Menus menu = new Menus();
@@ -70,48 +70,12 @@ public class GUIFormAddNewAlimentController {
 			menu.setNamePlate(tfNameOfService.getText());
 			menu.setPrice(Integer.parseInt(tfPriceOfService.getText()));
 
-			//menu.setServiceDay(cbSelectServiceDay.getSelectionModel().getSelectedItem());
-			switch (cbSelectServiceDay.getSelectionModel().getSelectedIndex()) {
-			case 0:	
-				if(rbServiceScheduleBreakfast.isSelected()) {
-					MenuBreakfastData.saveMenu(menu,MenuBreakfastData.fileNameMondayBreakfast);
-				}else{
-					MenuLunchData.saveMenu(menu,MenuLunchData.fileNameMondayLunch);
-					}
-			
-				break; 
-			case 1:
-				if(rbServiceScheduleBreakfast.isSelected()) {
-					MenuBreakfastData.saveMenu(menu,MenuBreakfastData.fileNameTuesdayBreakfast);
-				}else{
-					MenuLunchData.saveMenu(menu,MenuLunchData.fileNameTuesdayLunch);
-					}
-				break;
-			case 2:
-				if(rbServiceScheduleBreakfast.isSelected()) {
-					MenuBreakfastData.saveMenu(menu,MenuBreakfastData.fileNameWednesdayBreakfast);
-				}else{
-					MenuLunchData.saveMenu(menu,MenuLunchData.fileNameWednesdayLunch);
-					}
-				break;
-			case 3:
-				if(rbServiceScheduleBreakfast.isSelected()) {
-					MenuBreakfastData.saveMenu(menu,MenuBreakfastData.fileNameThurdsdayBreakfast);
-				}else{
-					MenuLunchData.saveMenu(menu,MenuLunchData.fileNameThurdsdayLunch);
-					}
-				break;
-			case 4:
-				if(rbServiceScheduleBreakfast.isSelected()) {
-					MenuBreakfastData.saveMenu(menu,MenuBreakfastData.fileNameFridayBreakfast);
-				}else{
-					MenuLunchData.saveMenu(menu,MenuLunchData.fileNameFridayLunch);
-					}
-				break;
-				
-			default:
-				notifyAction("no se puedo guardar el servicio");
+			if(LogicMenus.setAliments(menu,cbSelectServiceDay.getSelectionModel().getSelectedIndex(),rbServiceScheduleBreakfast.isSelected())) {
+				notifyAction("Alimento guardado exitosamente");
+			}else {
+				notifyAction("no se puedo guardar la comida");
 			}
+			
 			cleanForm();
 			}
 		}else {

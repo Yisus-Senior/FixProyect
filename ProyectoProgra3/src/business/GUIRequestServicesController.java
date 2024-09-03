@@ -34,6 +34,7 @@ import javafx.event.ActionEvent;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
@@ -67,7 +68,8 @@ public class GUIRequestServicesController {
 	@FXML
 	private Label lMessageErrors;
 	@FXML
-	List<Menus> selectedMenus = new ArrayList<>();
+	private Button btnBuyFood;
+
 	public void rbBreakfastIsSelected(ActionEvent event) {
 		setAlimentsTV();
 	}
@@ -91,7 +93,7 @@ public class GUIRequestServicesController {
 	}
 	// Event Listener on Button[#btnAddNewFood].onAction
 	@FXML
-	public void addNewFood(ActionEvent event) {
+	public void buyFood(ActionEvent event) {
 		
 		if(tableViewFood.getSelectionModel().getSelectedItem()!=null) {
 			Menus menu = tableViewFood.getSelectionModel().getSelectedItem();
@@ -105,6 +107,7 @@ public class GUIRequestServicesController {
 			notifyAction("Selecione una comida");
 		}
 	}
+	
 	public void closeWindows() {
 		 try {
 			
@@ -164,48 +167,28 @@ public class GUIRequestServicesController {
 	
 	public void setAlimentsTV() {	
 		List<Menus> menus =new ArrayList<Menus>();
-		switch (cbReservationDay.getSelectionModel().getSelectedIndex()) {
-		case 0:	
-			if(rbBreakfast.isSelected()) {
-				menus = MenuBreakfastData.getMenuList(MenuBreakfastData.fileNameMondayBreakfast);
-			}else{
-				menus =MenuLunchData.getMenuList(MenuLunchData.fileNameMondayLunch);
-				}
-		
-			break; 
-		case 1:
-			if(rbBreakfast.isSelected()) {
-				menus =MenuBreakfastData.getMenuList(MenuBreakfastData.fileNameTuesdayBreakfast);
-			}else{
-				menus =MenuLunchData.getMenuList(MenuLunchData.fileNameTuesdayLunch);
-				}
-			break;
-		case 2:
-			if(rbBreakfast.isSelected()) {
-				menus =MenuBreakfastData.getMenuList(MenuBreakfastData.fileNameWednesdayBreakfast);
-			}else{
-				menus =MenuLunchData.getMenuList(MenuLunchData.fileNameWednesdayLunch);
-				}
-			break;
-		case 3:
-			if(rbBreakfast.isSelected()) {
-				menus =MenuBreakfastData.getMenuList(MenuBreakfastData.fileNameThurdsdayBreakfast);
-			}else{
-				menus=MenuLunchData.getMenuList(MenuLunchData.fileNameThurdsdayLunch);
-			}
-			break;
-		case 4:
-			if(rbBreakfast.isSelected()) {
-				menus =MenuBreakfastData.getMenuList(MenuBreakfastData.fileNameFridayBreakfast);
-			}else{
-				menus =MenuLunchData.getMenuList(MenuLunchData.fileNameFridayLunch);
-				}
-			break;
-			
-		default:
-			notifyAction("no se pudo cargar las comidas");
-		}
+		menus = LogicMenus.getMenu(cbReservationDay.getSelectionModel().getSelectedIndex(),rbBreakfast.isSelected());
 		ObservableList<Menus> menu = FXCollections.observableArrayList(menus);
 		tableViewFood.setItems(menu);
+	}
+	
+	
+	@FXML
+	public void addNewFood(ActionEvent event) {
+try {
+			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/presentation/GUIFormAddNewAliment.fxml"));
+			
+			Parent root = loader.load();
+			Scene scene = new Scene(root);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //sino lo configuro se nececita agregar aqui
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+			Stage temp = (Stage)btnBack.getScene().getWindow();
+			temp.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}	
 	}
 }
